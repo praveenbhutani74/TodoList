@@ -1,0 +1,140 @@
+<html>
+<head>
+<title>
+    <%= title%>
+</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="/Css/home.css">
+</head>
+<body>
+  <div id="main">
+   
+      <div id="container">
+<img src="https://upload.wikimedia.org/wikipedia/commons/b/ba/Mountainous_landscape_at_dusk_%28Unsplash%29.jpg" alt="" style="height: 178px; width: 450px;">
+      <h1 class="bottom-left">Todo List</h1>
+      <p id="date" ></p>
+    </div>
+    <form action="/contact" method="POST" >
+<h5 id="h1">description</h5>
+        <input type="text"  name="description" placeholder="What do you need to do?" required><br>
+    
+    <!-- </form>
+
+    <form action="/action" method="POST"> -->
+      <h6 id="h2">Category</h6>
+        <label for="cars" " id="label" class="strikethrough"></label>
+        <select id="cars" name="cars"">
+         
+          <option  class="option1" value="Personal" name="cars">Personal</option>
+          <option class="option1"  value="Bussiness" name="cars">Bussiness</option>
+          <option class="option1"  value="Work" name="cars">Work</option>
+          <option class="option1"  value="Projects" name="cars">Projects</option>
+          <option class="option1"  value="Others" name="cars">Others</option>
+        </select>
+      
+<h6 id="h3">Due date</h6>
+        <input type="date" value="mm-dd-yyyy" name="date">
+        
+<br>
+        
+    <button type="submit" id="button"><i  id="i" class="fa fa-plus" ></i>Add</button>
+    
+    </form>
+    <form action="/delete"  method="POST">
+     <!-- <input type="submit" value="Delete"> -->
+
+  <button type="submit" value="Delete" id="button1"><i class="fa fa-trash-o"></i> Delete</button>
+    <ul>
+    <% for(let i of desk){%>
+    <li>
+ 
+
+      <% if (i.cars=='Personal') { %>
+        <input type="checkbox" name="<%=i._id%>"  id="check">
+
+      <span class="span1" id="span1"><%= i.description %></span>
+      <span id="span2" ><div    style="margin-left: 220px; margin-top: 5px; font-size: 18px;" class="btn btn-primary"><%=i.cars%></div> </span>
+          <span  class="span3" id="span3" > <i  id ="calender"
+            class="fa fa-calendar" aria-hidden="true"></i><%=i.date %></span> 
+        <%}
+      
+        
+
+ %>
+        
+        
+     
+
+        
+ 
+      <% if (i.cars=='Bussiness') { %>
+        <input type="checkbox" name="<%=i._id%>"  id="check">
+
+      <span class="span1" id="span1"><%= i.description %></span>
+      <span id="span2" ><div   id="btn3" style="margin-left: 220px; margin-top: 5px;" class="btn btn-danger"><%=i.cars%></div> </span>
+          <span id="span3" > <i  id ="calender"
+            class="fa fa-calendar" aria-hidden="true"></i><%=i.date %></span> 
+        <%}%>
+            
+        <% if (i.cars=='Work') { %>
+          <input type="checkbox" name="<%=i._id%>"  id="check">
+  
+        <span class="span1" id="span1"><%= i.description %></span>
+        <span id="span2" ><div   id="btn3" style="   margin-left: 220px; margin-top: 5px; height: 38px; width: 92px; font-weight: bold; font-size: 18px; text-align: center;" class="btn btn-info"><%=i.cars%></div> </span>
+            <span id="span3" > <i  id ="calender"
+              class="fa fa-calendar" aria-hidden="true"></i><%=i.date %></span> 
+          <%}%>
+          <% if (i.cars=='Projects') { %>
+            <input type="checkbox" name="<%=i._id%>"  id="check">
+    
+          <span class="span1" id="span1"><%= i.description %></span>
+          <span id="span2" ><div   id="btn5" style="   margin-left: 220px; margin-top: 5px; height: 38px; width: 91px; font-size: 18px; text-align: center;  " class="btn btn-success" ><%=i.cars%></div> </span>
+              <span id="span3" > <i  id ="calender"
+                class="fa fa-calendar" aria-hidden="true"></i><%=i.date %></span> 
+            <%}%>
+            <% if (i.cars=='Others') { %>
+              <input type="checkbox" name="<%=i._id%>"  id="check">
+      
+            <span class="span1" id="span1"><%= i.description %></span>
+            <span id="span2" ><div   id="btn5" style="   margin-left: 220px; margin-top: 5px; height: 38px; width: 91px; font-size: 18px; text-align: center;  " class="btn btn-light" ><%=i.cars%></div> </span>
+                <span id="span3" > <i  id ="calender"
+                  class="fa fa-calendar" aria-hidden="true"></i><%=i.date %></span> 
+              <%}%>
+            
+
+
+
+       
+
+  
+                     
+        
+
+               
+                <!-- <div class="checkbox">
+                  <label><input type="checkbox" value=""></label>
+                </div>
+                <div class="checkbox disabled">
+                  <label><input type="checkbox" value="" ></label>
+                </div> -->
+                
+
+</li>
+ 
+
+<%} %>
+</form>
+</ul>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+<script  type="text/javascript" src="/js/home.js"></script>
+
+</body>
+
+
+</html>
